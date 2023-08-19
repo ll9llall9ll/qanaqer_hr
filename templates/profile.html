@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="style2.css">
+    </head>
+    <body>
+        <style>
+            body{
+    background: #e2e1e0;
+    text-align:center ;
+    font-family: monospace;
+}
+.profile{
+    background:#1d2630;
+    border-radius:6px;
+    display:inline-block;
+    height:470px;
+    width:375px;
+    margin-top:60px;
+    box-shadow:0 12px 13px rgba(0,0,0, 0.16), 0
+}
+.img{
+    border-radius:100%;
+    margin-top:60px;
+    width:132px;
+    height:128;
+}
+.name{
+    color: #080808;
+}
+.title{
+    color:#000000;
+    font-size:16px;
+}
+.desc{
+    font-size: 14px;
+    margin-left: 65px;
+    margin-right: 65px;
+    color:#09090a;
+    margin-top: 16px;
+}
+        </style>
+        <h1>Welcome to your profile, {{ currentLogin }}!</h1>
+           <body>
+                <form action="/signout" method="post">
+                    <input type="submit" value="Sign Out">
+                </form>
+
+                <h1></h1>
+                
+            <a href="/settings">Settings</a>
+
+                
+           </body>
+        <div class="Page"></div>
+        <h1>Profile</h1>
+        <svg width="100%" height="1">
+            <line x1="0" y1="0" x2="100%" y2="0" style="stroke: black; stroke-width: 1;"></line>
+        </svg> 
+        <div>
+            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="" class="img">
+        </div>
+        <h1 class="name">Name Surname</h1>
+        <p class="title">Web Developer</p>
+        <h2>Skills:</h2>
+        <ul>
+            {% for skill in skills %}
+            <li>{{ skill }}</li>
+            {% endfor %}
+        </ul>
+        <form action="/addSkill" method="post">
+            <label>Add skill</label>
+            <div class="form-group">
+                <label for="">Skill</label>
+                <input type="text" class="form-control" name="skill" required/>
+            </div>
+            <input type="submit" value="Add skill"></input>
+        </form>
+        <div class="desc">
+            <p>Sign up date:2023</p>
+        </div>
+        <button class="btn">Contact Me</button> 
+    </div>
+    </body>
+</html>
