@@ -100,10 +100,15 @@ def settings():
 
         if currentLogin in passwordDic and passwordDic[currentLogin] == current_password:
             if new_password == confirm_new_password:
-                passwordDic[currentLogin] = new_password
-                return redirect('/profile')
+                if current_password != new_password: 
+                    passwordDic[currentLogin] = new_password
+                    return redirect('/profile')
+                else:
+                    error_message = "New password must be different from the current password"
             else:
-                error_message = "Sxal e"
+                error_message = "Passwords do not match"
+        else:
+            error_message = "Current password is incorrect"
       
     return render_template('settings.html', error_message=error_message)
 

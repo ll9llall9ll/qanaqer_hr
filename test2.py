@@ -1,17 +1,12 @@
-a = int(input())
-b = int(input())
-c = int(input())
-d = int(input())
-num = 0
+name = input("")
+salary= int(input())
 
-if a > 0:
-    num += a
-if b > 0:
-    num += b
-if c > 0:
-    num += c
-if d > 0:
-    num += d
+if name == 'Alice':
+    print('Hey there!')
 
-print(num)
-
+    if salary < 10000:
+        print('Sounds good.')
+    else:
+        print("Let's discuss this a little.")
+else:
+    print("I don't know you.")
