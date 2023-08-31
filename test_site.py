@@ -70,14 +70,12 @@ def signout():
 def signup():
     global isLoggedIn, passwordDic, currentLogin
     
-    if request.method == 'POST':
-        username = request.form["username"]
-        password = request.form["password"]
-        passwordDic[username] = password
-        loginInner(username, password)
-        return redirect('/profile')
-    else:
-        return render_template('signup.html')
+    username = request.form["username"]
+    password = request.form["password"]
+    passwordDic[username] = password
+    loginInner(username, password)
+    return redirect('/profile')
+    return render_template('signup.html')
 
 def loginInner(login, password):
     global isLoggedIn, currentLogin
@@ -116,4 +114,3 @@ def settings():
 if __name__== '__main__':
     app.run(debug=True)
     
-
